@@ -1,4 +1,6 @@
+import math
 from PIL import Image, ImageDraw
+
 
 
 # Image dimensions
@@ -9,13 +11,13 @@ center_x, center_y = width // 2, height // 2
 image = Image.new('RGB', (width, height), 'white')
 draw = ImageDraw.Draw(image)
 
-radius = 25
+radius = 10
 
 
 # Top Left Circle (Circle 1)
 # Bounding box for circle
 c1_top_left = (0, 0)
-c1_bottom_right = (center_x, center_y)
+c1_bottom_right = (center_x/2, center_y/2)
 # Draw shape
 draw.ellipse([c1_top_left, c1_bottom_right], fill="black")
 
