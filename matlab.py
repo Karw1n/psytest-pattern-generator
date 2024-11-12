@@ -19,6 +19,7 @@ ax.add_patch(border)
 rect = patches.Rectangle((2, 2), width=3, height=1.5, edgecolor='blue', fill=False)
 ax.add_patch(rect)
 
+# Red Circle No Fill
 circle = patches.Circle((2, 5), radius=2.5, edgecolor='red', fill=False)
 ax.add_patch(circle)
 
