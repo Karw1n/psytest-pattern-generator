@@ -2,39 +2,36 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from abc import ABC, abstractmethod
 
-# Code dump
-# def change_position(old_coords, new_coords):
-#     if in_boundary(new_coords):
-#         return new_coords
+def in_boundary(coords, width, height):
+    x , y = coords
+    if x <= width/2 and x >= -width/2 and y <= height/2 and y >= -height/2:
+        return True
+    else:
+        return False
+    
+def check_direction(old_coords, new_coords):
+    old_x, old_y = old_coords
+    new_x, new_y = new_coords
 
-#     else:
-#         # Detect direction of motion (Up, Down, Left, Right)
-#         x_old, y_old = old_coords
-#         x_new, y_new = new_coords 
-#         x_change, y_change = ((x_new - x_old), (y_new - y_old))
+    dx = new_x - old_x
+    dy = new_y - old_y
 
-#         # If it goes up we need to move it right
-#         if (x_change == 0 and y_change > 0):
+    # North
+    if dx == 0 and dy > 0:
+        return "North"
 
-# def check_direction(old_coords, new_cords):  
-#     # If it goes up and over border then must move right
-
-#     # If it goes down and under border then must move left
-
-#     # If it goes far left must move up
-
-#     # If it goes far gith then must move down
-
-#     # Need to consider if it goes up and right, it would go down and left
+    # North East
 
 
+    # East
 
-# def in_boundary(coords):
-#     x , y = coords
-#     if x <= width/2 and x >= -width/2 and y <= height/2 and y >= -height/2:
-#         return True
-#     else:
-#         return False
+    # South East
+
+    # South
+
+    # South West
+
+    # North West
 
 class Shape(ABC):
     def __init__(self, coords, color, fill):
@@ -60,7 +57,6 @@ class Shape(ABC):
     def set_fill(self, fill):
         self._fill = fill
 
-
 class Circle(Shape):
     def __init__(self, coords, radius, color, fill):
         super().__init__(coords, color, fill)
@@ -83,5 +79,34 @@ class Circle(Shape):
     def update_patch(self):
         self._patch = patches.Circle((self._coords), radius=self._radius, color=self._color, fill=self._fill)
 
+# Can also be a squre
+class Rectangle(Shape):
+    def __init__(self, coords, width, height, color, fill):
+        super().__init__(coords, color, fill)
+        self._width = width
+        self._height = height
+        self._patch = patches.Rectangle((coords), width=width, height=height, color=color, fill=fill)    
+
+    def get_width(self):
+        return self._width
     
+    def set_width(self, width):
+        self._width = width
+
+    def get_height(self):
+        return self._height
+    
+    def set_height(self, height):
+        self._height = height
+
+    def get_patch(self):
+        self.update_patch()
+        return self._patch
+    
+    def set_patch(self, patch):
+        self._patch = patch
+    
+    def update_patch(self):
+        self._patch = patches.Rectangle((self._coords), width=self._width, height=self._height, color=self._color, fill=self._fill)    
+
 
