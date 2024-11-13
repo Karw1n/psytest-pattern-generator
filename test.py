@@ -21,8 +21,11 @@ for ax in axs.flat:
     ax.add_patch(border)
 
     # Test
-    middle_circle = Circle((0, 0), 5, 'yellow', True) 
-    ax.add_patch(middle_circle.get_patch())
+    # middle_circle = Circle((0, 0), 5, 'yellow', True) 
+    # ax.add_patch(middle_circle.get_patch())
+
+    polygon = patches.Polygon([(0, 0), (1, 1), (1, 0)], closed=True, color='black', fill=True)
+    ax.add_patch(polygon)
 
     #ax.axis('off')
    
