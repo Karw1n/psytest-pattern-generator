@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
-fig, axs = plt.subplots(2, 3, figsize=(5, 5))
+
+# 
+fig, axs = plt.subplots(1, 4, figsize=(10, 10))
 
 width, height = 10, 10
 for ax in axs.flat:
@@ -17,7 +19,9 @@ for ax in axs.flat:
     
     
 # Create the first image of the pattern
-    
+for i in range (3):
+    circle = patches.Circle((2.5, 7.5),  radius=1, color='red')
+    (axs.flat[i]).add_patch(circle)
 
 
 # Incremently apply the rule
