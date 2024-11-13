@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
+width, height = 20, 20
+bottom_left_corner_coord = (-width/2, -height/2) 
+corner_coords = [(-width/2, height/2), (width/2, height/2), (width/2, -height/2), (-width/2, -height/2)]
 
 # 
 fig, axs = plt.subplots(1, 5, figsize=(10, 10))
 
-width, height = 20, 20
-bottom_left_corner_coord = (-width/2, -height/2) 
-corner_coords = [(-width/2, height/2), (width/2, height/2), (width/2, -height/2), (-width/2, -height/2)]
 
 for ax in axs.flat:
     ax.set_aspect('equal')
@@ -20,7 +20,6 @@ for ax in axs.flat:
     ax.add_patch(border)
     #ax.axis('off')
 
-    
     
 # Create the first image of the pattern
 for i in range (4):
